@@ -39,157 +39,39 @@ public class Main {
 
         StringBuilder sb = new StringBuilder();
 
-        List<String> directories = Arrays.asList("src", "res", "savegames", "temp", "main", "test", "drawables", "vectors", "icons");
-        List<String> files = Arrays.asList("Main.java", "Utils.java", "temp.txt");
+        List<String> directories = Arrays.asList("C:\\Games\\src", "C:\\Games\\res", "C:\\Games\\savegames", "C:\\Games/temp", "C:\\Games\\src\\main", "C:\\Games\\src\\test", "C:\\Games\\res\\drawables", "C:\\Games\\res\\vectors", "C:\\Games\\res\\icons");
+        List<String> files = Arrays.asList("C:\\Games\\src\\main\\Main.java", "C:\\Games\\src\\main\\Utils.java", "C:\\Games\\temp\\temp.txt");
 
 
         sb.append("-- Создание экземпляра StringBuilder для добавления в \n" +
                 "него всей информации о создании файлов и каталогов\n");
 
         for (int i = 0; i < directories.size(); i++) {
-            if (i < 4) {
-                File newFile = new File(directories.get(i));
-                newFile.mkdir();
-                if (newFile.exists()) {
-                    sb.append("-- Успешное cоздание директории " + newFile.getName() + " в папке Games\n");
-                } else {
-                    sb.append("--Неуспешное cоздание директории " + newFile.getName() + " в папке Games\n");
-                }
-
-            } else if (i < 6) {
-                File newFile = new File(directories.get(i));
-                newFile.mkdir();
-                if (newFile.exists()) {
-                    sb.append("-- Успешное cоздание директории " + newFile.getName() + " в каталоге src\n");
-                } else {
-                    sb.append("--Неуспешное cоздание директории " + newFile.getName() + " в каталоге src\n");
-                }
+            File newFile = new File(directories.get(i));
+            newFile.mkdir();
+            if (newFile.exists()) {
+                sb.append("-- Успешное cоздание директории " + newFile.getName() + " в папке " + newFile.getParent() + "\n");
             } else {
-                File newFile = new File(directories.get(i));
-                newFile.mkdir();
-                if (newFile.exists()) {
-                    sb.append("-- Успешное cоздание директории " + newFile.getName() + " в каталоге res\n");
-                } else {
-                    sb.append("--Неуспешное cоздание директории " + newFile.getName() + " в каталоге res\n");
-                }
+                sb.append("--Неуспешное cоздание директории " + newFile.getName() + " в папке " + newFile.getParent() + "\n");
+
             }
 
         }
-//        File res = new File("res");
-//        res.mkdir();
-//        if (res.exists()) {
-//            sb.append("-- Успешное cоздание директории res\n");
-//        } else {
-//            sb.append("--Неуспешное cоздание директории res\n");
-//        }
-//
-//        File savegames = new File("savegames");
-//        savegames.mkdir();
-//        if (savegames.exists()) {
-//            sb.append("-- Успешное cоздание директории savegames\n");
-//        } else {
-//            sb.append("--Неуспешное cоздание директории savegames\n");
-//        }
-//
-//        File temp = new File("temp");
-//        temp.mkdir();
-//        if (temp.exists()) {
-//            sb.append("-- Успешное cоздание директории temp\n");
-//        } else {
-//            sb.append("--Неуспешное cоздание директории temp\n");
-//        }
 
-//        File main = new File("src//main");
-//        main.mkdir();
-//        if (main.exists()) {
-//            sb.append("-- Успешное cоздание директории main в каталоге src\n");
-//        } else {
-//            sb.append("--Неуспешное cоздание директории main в каталоге src\n");
-//        }
-//
-//        File test = new File("src//test");
-//        test.mkdir();
-//        if (test.exists()) {
-//            sb.append("-- Успешное cоздание директории test в каталоге src\n");
-//        } else {
-//            sb.append("--Неуспешное cоздание директории test в каталоге src\n");
-//        }
-
-
-//        File drawables = new File("res//drawables");
-//        drawables.mkdir();
-//        if (drawables.exists()) {
-//            sb.append("-- Успешное cоздание директории drawables в каталоге res\n");
-//        } else {
-//            sb.append("--Неуспешное cоздание директории drawables в каталоге res\n");
-//        }
-//
-//        File vectors = new File("res//vectors");
-//        vectors.mkdir();
-//        if (vectors.exists()) {
-//            sb.append("-- Успешное cоздание директории vectors в каталоге res\n");
-//        } else {
-//            sb.append("--Неуспешное cоздание директории vectors в каталоге res\n");
-//        }
-//        File icons = new File("res/icons");
-//        icons.mkdir();
-//        if (icons.exists()) {
-//            sb.append("-- Успешное cоздание директории icons в каталоге res\n");
-//        } else {
-//            sb.append("--Неуспешное cоздание директории icons в каталоге res\n");
-//        }
         for (int i = 0; i < files.size(); i++) {
-            if (i < 2) {
-                File newFailJava = new File(files.get(i));
-                try {
-                    newFailJava.createNewFile();
-                    if (newFailJava.exists()) {
-                        sb.append("-- Успешное cоздание файла " + newFailJava.getName() + " в подкаталоге main\n");
-                    } else {
-                        sb.append("--Неуспешное cоздание файла " + newFailJava.getName() + " в подкаталоге main\n");
-                    }
-                } catch (IOException e) {
-                    System.out.println(e.getMessage());
+            File newFailJava = new File(files.get(i));
+            try {
+                newFailJava.createNewFile();
+                if (newFailJava.exists()) {
+                    sb.append("-- Успешное cоздание файла " + newFailJava.getName() + " в подкаталоге " + newFailJava.getParent() + "\n");
+                } else {
+                    sb.append("--Неуспешное cоздание файла " + newFailJava.getName() + " в подкаталоге " + newFailJava.getParent() + "\n");
                 }
-            } else {
-                File newFailJava = new File(files.get(i));
-                try {
-                    newFailJava.createNewFile();
-                    if (newFailJava.exists()) {
-                        sb.append("-- Успешное cоздание файла " + newFailJava.getName() + " в подкаталоге temp\n");
-                    } else {
-                        sb.append("--Неуспешное cоздание файла " + newFailJava.getName() + " в подкаталоге temp\n");
-                    }
-                } catch (IOException e) {
-                    System.out.println(e.getMessage());
-                }
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
             }
-
         }
 
-//        File utilsJava = new File("src//main//Utils.java");
-//        try {
-//            utilsJava.createNewFile();
-//            if (utilsJava.exists()) {
-//                sb.append("-- Успешное cоздание файла utilsJava в подкаталоге main\n");
-//            } else {
-//                sb.append("--Неуспешное cоздание файла utilsJava в подкаталоге main\n");
-//            }
-//        } catch (IOException e) {
-//            System.out.println(e.getMessage());
-//        }
-//
-//        File tempTxt = new File("temp//temp.txt");
-//        try {
-//            tempTxt.createNewFile();
-//            if (tempTxt.exists()) {
-//                sb.append("-- Успешное cоздание файла tempTxt в каталоге temp\n");
-//            } else {
-//                sb.append("--Неуспешное cоздание файла tempTxt в каталоге temp\n");
-//            }
-//        } catch (IOException e) {
-//            System.out.println(e.getMessage());
-//        }
         String text = sb.toString();
         try (FileWriter writer = new FileWriter("temp//temp.txt", false)) {
             writer.write(text);
@@ -217,5 +99,5 @@ public class Main {
         zipFiles("savegames//savegames.zip", list);
     }
 
-
 }
+
